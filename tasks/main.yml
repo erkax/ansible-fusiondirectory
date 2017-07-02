@@ -1,0 +1,4 @@
+---
+# tasks file for unamur.fusiondirectory
+- include: configure_fd_repo.yml
+- include: install_fd_packages.yml

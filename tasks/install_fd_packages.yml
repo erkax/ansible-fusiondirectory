@@ -1,0 +1,9 @@
+- name: Install fusiondirectory packages
+  yum:
+    name: "{{ item }}"
+    enablerepo: "{{ php_enablerepo }}"
+    state: present
+  with_items:
+    - fusiondirectory
+    - fusiondirectory-schema
+    - fusiondirectory-selinux

@@ -1,0 +1,6 @@
+---
+# defaults file for unamur.fusiondirectory
+
+fusiondirectory_repo: https://repos.fusiondirectory.org/fusiondirectory-current/rhel7/RPMS/
+fusiondirectory_extra_repo: http://repos.fusiondirectory.org/fusiondirectory-extra/rhel7/RPMS/
+fusiondirectory_gpg_key: 62B4981F
