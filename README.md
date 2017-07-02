@@ -1,12 +1,16 @@
-Role Name
-=========
+Ansible role: Install and configure FusionDirectory
+====================================================
 
-A brief description of the role goes here.
+WIP - Work in progress, don't use this role except if you want to improve it
+
+A role to install and configure fusiondirectory. (for more information about
+this project please visit the official website https://www.fusiondirectory.org)
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+You need to install at least PHP 5.6 for that i advise you to use the remi
+repository managed by the geerlingguy php and remi roles.
 
 Role Variables
 --------------
