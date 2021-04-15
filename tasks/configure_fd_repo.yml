@@ -1,25 +1,10 @@
-- name: Get key from gnupg server
-  command: "gpg --keyserver keys.gnupg.net --recv-key {{ fusiondirectory_gpg_key }}"
-
-- name: Extract key and copy it
-  shell: "gpg --export -a \"Fusiondirectory Archive Manager <contact@fusiondirectory.org>\" > RPM-GPG-KEY-FUSIONDIRECTORY"
-  args:
-    creates: RPM-GPG-KEY-FUSIONDIRECTORY
-    chdir: /etc/pki/rpm-gpg/
-
-- name: Import the key to the keystore
-  rpm_key:
+- name: Add an Apt signing key, will not download if present
+  ansible.builtin.apt_key:
+    id: D744D55EACDA69FF
+    keyserver: keys.gnupg.net
     state: present
-    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-FUSIONDIRECTORY
 
 - name: Add FusionDirectory repostiory
-  yum_repository:
-    name: FusionDirectory
-    description: FusionDirectory repo
-    baseurl: "{{ fusiondirectory_repo }}"
-
-- name: Add FusionDirectory extra repostiory
-  yum_repository:
-    name: FusionDirectoryExtra
-    description: FusionDirectory repo
-    baseurl: "{{ fusiondirectory_extra_repo }}"
+  ansible.builtin.apt_repository:
+    repo: deb http://repos.fusiondirectory.org/fusiondirectory-extra/debian-stretch stretch main
+    state: present
