@@ -1,9 +1,12 @@
 - name: Install fusiondirectory packages
-  yum:
-    name: "{{ item }}"
-    enablerepo: "{{ php_enablerepo }}"
+  apt:
+    name: 
+      - fusiondirectory
+      - fusiondirectory-schema
+      - fusiondirectory-plugin-systems
+      - fusiondirectory-plugin-mail
+      - fusiondirectory-plugin-dovecot
+      - fusiondirectory-plugin-ldapmanager
+      - php-fpm
+      - "{{ fusiondirectory_webserver }}"
     state: present
-  with_items:
-    - fusiondirectory
-    - fusiondirectory-schema
-    - fusiondirectory-selinux
